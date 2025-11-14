@@ -84,23 +84,23 @@ const Customizer = () => {
     });
   };
 
-  const handleSubmit = async (type) => {
+  const handleSubmit = async () => {
     if (!prompt) return alert("Please enter a prompt");
 
     try {
       setIsGeneratingImg(true);
-      const reponse = await fetch("http://localhost:8080/api/v1/dalle", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt,
-        }),
-      });
+      // const reponse = await fetch("http://localhost:8080/api/v1/dalle", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     prompt,
+      //   }),
+      // });
 
-      const data = await reponse.json();
-      handleDecals(type, `data:image/png;base64,${data.photo}`);
+      // const data = await reponse.json();
+      // handleDecals(type, `data:image/png;base64,${data.photo}`);
     } catch (error) {
       alert(error);
     } finally {
